@@ -1,0 +1,7 @@
+include ':base'
+include ':componentbase'
+include ':login'
+include ':main'
+include ':news'
+include ':app'
+rootProject.name = "ModuleTest"
