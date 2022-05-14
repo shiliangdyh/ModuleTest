@@ -1,5 +1,7 @@
-plugins {
-    id 'com.android.library'
+if (isNewsModuleRunAlone.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
 }
 
 android {
@@ -7,6 +9,9 @@ android {
     buildToolsVersion "32.0.0"
 
     defaultConfig {
+        if (isNewsModuleRunAlone.toBoolean()) {
+            applicationId "com.sl.news"
+        }
         minSdkVersion 16
         targetSdkVersion 32
         versionCode 1
@@ -22,6 +27,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main {
+            if (isNewsModuleRunAlone.toBoolean()) {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

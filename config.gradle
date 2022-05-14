@@ -1,0 +1,18 @@
+android {
+    productFlavors {
+        productFlavors.all {
+            flavor ->
+                buildConfigField "String", "BASE_URL", "\"defaulturl\""
+        }
+
+        UAT{
+            buildConfigField "String", "BASE_URL", "\"uaturl\""
+        }
+        SIT{
+            buildConfigField "String", "BASE_URL", "\"siturl\""
+        }
+        SC{
+            buildConfigField "String", "BASE_URL", "\"scurl\""
+        }
+    }
+}
