@@ -2,4 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sl.login">
 
+    <application>
+        <service
+            android:name=".service.LoginService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote_login_service">
+            <intent-filter>
+                <action android:name="ACTION_LOGIN_SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
 </manifest>
