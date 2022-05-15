@@ -1,3 +1,4 @@
+include ':finger'
 include ':base'
 include ':componentbase'
 include ':login'

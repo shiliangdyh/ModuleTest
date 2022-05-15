@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
 }
+apply plugin: 'org.qiyi.svg.plugin'
 
 apply from: '../config.gradle'
 
@@ -48,6 +49,9 @@ dependencies {
     }
     if (!isMainModuleRunAlone.toBoolean()) {
         implementation project(path: ':main')
+    }
+    if (!isFingerModuleRunAlone.toBoolean()) {
+        implementation project(path: ':finger')
     }
     implementation project(path: ':base')
     testImplementation 'junit:junit:4.+'
